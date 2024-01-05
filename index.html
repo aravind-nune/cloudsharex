@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cloud File Sharing Tool</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 14px;
+        }
+
+        input[type="file"] {
+            margin-bottom: 12px;
+        }
+
+        button {
+            padding: 14px 22px;
+            background-color: #00f7ff;
+            color: #ffffff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .upload-form {
+            max-width: 420px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="upload-form">
+        <h2>File Sharing Tool Through AWS</h2>
+        <form id="fileUploadForm" enctype="multipart/form-data" action="/upload" method="post">
+            <label for="file">Choose a file to upload:</label>
+            <input type="file" id="file" name="file" accept=".pdf,.doc,.docx,.txt">
+            <label for="emails">You can enter up to five email addresses (comma-separated):</label>
+            <input type="text" id="emails" name="emails">
+            <button type="submit" >Upload</button>
+        </form>
+    </div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('file');
+            const emailInput = document.getElementById('emails');
+            const file = fileInput.files[0];
+            const emails = emailInput.value.split(',');
+
+            if (!file) {
+                alert('Please select a file to upload.');
+                return;
+            }
+
+            if (emails.length<=0) {
+                alert('Please enter valid email addresses.');
+                return;
+            }
+
+             }
+    </script>
+</body>
+</html>
