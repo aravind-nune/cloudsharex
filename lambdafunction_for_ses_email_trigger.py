@@ -2,7 +2,7 @@ import json
 import boto3
 
 
-ses_client = boto3.client('ses', aws_access_key_id="AKIAVWZFT2VBPD6YQEJ4", aws_secret_access_key="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", region_name="us-east-1")
+ses_client = boto3.client('ses', aws_access_key_id="", aws_secret_access_key="", region_name="us-east-1")
 
 
 def lambda_handler(event, context):
@@ -15,7 +15,7 @@ def lambda_handler(event, context):
     
         try:
            res= ses_client.send_email(
-                Source='aravindnune2303@gmail.com',
+                Source='',
                 Destination={'ToAddresses': emails},
                 Message={
                     'Subject': {'Data': subject},
